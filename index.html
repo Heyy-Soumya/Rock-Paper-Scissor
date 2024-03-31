@@ -8,25 +8,9 @@
 </head>
 <body>
         <h3>Rock-Paper-Scissor</h3>
-        <h5 >Choose</h5>
+        
     <div class="bdy">
-        <div class="moove-btn">
-            <button class="button" onclick="
-                player('rock');
-                "><img src="./images/rock-emoji.png" class="icon">
-            </button>
-
-            <button class="button" onclick="
-                player('paper');
-                "><img src="./images/paper-emoji.png" class="icon">
-            </button>
-
-            <button class="button" onclick="
-                player('scissor');
-                "><img src="./images/scissor-emoji.png" class="icon">
-            </button>
-        </div>
-
+        
         <p class="js-result result" ></p>
         <p class="js-moves"></p>
         <p class="js-scoreBoard scoreBoard"></p>
@@ -39,9 +23,22 @@
             scoreUpdate();
             ">Reset Score
         </button>
-    </div>
-        
 
+        <h5 >Choose</h5>
+        <div class="moove-btn">
+            <button class="button js-rockbtn">
+                <img src="./images/rock-emoji.png" class="icon">
+            </button>
+
+            <button class="button js-paperbtn">
+                <img src="./images/paper-emoji.png" class="icon">
+            </button>
+
+            <button class="button js-scissorbtn" >
+                <img src="./images/scissor-emoji.png" class="icon">
+            </button>
+        </div>
+    </div>
     <script src="./RPC.js">
     </script>
 </body>
