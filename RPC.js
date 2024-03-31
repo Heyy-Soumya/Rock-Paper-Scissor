@@ -1,4 +1,4 @@
-    const scoreBoard= JSON.parse(localStorage.getItem('scoreBoard'))||{
+   const scoreBoard= JSON.parse(localStorage.getItem('scoreBoard'))||{
         Wins:0,
         Losses:0,
         Ties:0
@@ -7,44 +7,44 @@
     scoreUpdate();
 
     function player(playerMove){
-    let comp=compMove();
-    let result='';
+        let comp=compMove();
+        let result='';
 
-    if (playerMove==='scissor'){
+        if (playerMove==='scissor'){
 
-        if(comp==='rock'){
-            result='You lose';
+            if(comp==='rock'){
+                result='You lose';
+            }
+            else if(comp==='paper'){
+                result='You win';
+            }
+            else if(comp==='scissor'){
+                result='Tie';
+            }
         }
-        else if(comp==='paper'){
-            result='You win';
-        }
-        else if(comp==='scissor'){
-            result='Tie';
-        }
-    }
-    else if (playerMove==='paper') {
+        else if (playerMove==='paper') {
 
-        if(comp==='rock'){
-            result='You win';
+            if(comp==='rock'){
+                result='You win';
+            }
+            else if(comp==='paper'){
+                result='Tie';
+            }
+            else if(comp==='scissor'){
+                result='You lose';
+            }
         }
-        else if(comp==='paper'){
-            result='Tie';
-        }
-        else if(comp==='scissor'){
-            result='You lose';
-        }
-    }
-    else if (playerMove==='rock') {
-        
-        if(comp==='rock'){
-            result='Tie';
-        }
-        else if(comp==='paper'){
-            result='You lose';
-        }
-        else if(comp==='scissor'){
-            result='You win';
-        }
+        else if (playerMove==='rock') {
+            
+            if(comp==='rock'){
+                result='Tie';
+            }
+            else if(comp==='paper'){
+                result='You lose';
+            }
+            else if(comp==='scissor'){
+                result='You win';
+            }
     }
 
     if(result==='You win'){
@@ -68,9 +68,32 @@
         <img src="./images/${playerMove}-emoji.png" class="icon">
         vs 
         <img src="./images/${comp}-emoji.png" class="icon"> Computer`;
-        
-
     }
+    
+    document.querySelector('.js-rockbtn')
+        .addEventListener('click',()=>{
+            player('rock');
+        })
+    document.querySelector('.js-paperbtn')
+    .addEventListener('click',()=>{
+        player('paper');
+    })
+    document.querySelector('.js-scissorbtn')
+    .addEventListener('click',()=>{
+        player('scissor');
+    })
+
+    document.body.addEventListener('keydown',(event)=>{
+        if(event.key==='r'){
+            player('rock');
+        }
+        else if (event.key==='p') {
+            player('paper');
+        }
+        else if (event.key==='s') {
+            player('scissor');
+        }
+    })
 
     function scoreUpdate(){
     document.querySelector('.js-scoreBoard')
